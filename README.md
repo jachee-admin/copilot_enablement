@@ -43,11 +43,11 @@ guides/
 
 ## Key Artifacts
 
-### 1. [Copilot Prompt Playbook](./guides/Copilot_Prompt_Playbook.md)
+### 1. [Copilot Prompt Playbook](./guides/copilot_prompt_playbook.md)
 A practical guide that helps developers master **clarity, context, and constraints** — the “3C Rule” for effective prompting.
 Includes examples for Bash, Python, Ansible, and SQL automation.
 
-### 2. [Copilot ROI Tracker](./guides/Copilot_ROI_Template.md)
+### 2. [Copilot ROI Tracker](./guides/copilot_roi_template.md)
 A framework for quantifying productivity gains after Copilot rollout.
 Tracks time savings, bug rate reductions, and prompt adoption metrics per team.
 
