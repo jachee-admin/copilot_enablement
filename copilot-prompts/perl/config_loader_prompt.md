@@ -1,10 +1,3 @@
-Perfect — here’s a polished, drop-in **Perl config loader** artifact for your `perl/` directory.
-
----
-
-## `perl/config_loader_prompt.md`
-
-````markdown
 # Prompt: Robust Config Loader (Perl) — INI + ENV overrides + UTF-8 safety
 
 ## Goal
@@ -63,7 +56,7 @@ It should be **UTF-8 safe**, dependency-light, validate required keys, and print
 
 ---
 
-## Example of a Good Output (reference implementation)
+## Reference Implementation
 
 ```perl
 # lib/MyApp/Config.pm
@@ -335,9 +328,3 @@ perl bin/show-config --dump
 * “Add `--profile prod/dev` to switch config files quickly.”
 * “Encrypt secrets at rest with `GnuPG` and a `--decrypt` hook for CI.”
 
-```
-
----
-
-Want a quick unit test (`t/config.t`) to assert precedence and coercions, or move on to the remaining SQL/Bash files?
-```

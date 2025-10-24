@@ -131,6 +131,11 @@ It includes:
 > Use these patterns as building blocks for consistent Copilot prompts across the repo.
 ---
 
+## Examples / Tools
+
+- [Prompt Coach (AI Prompt Optimizer)](prompt-coach/README.md)
+
+
 ## About the Author
 
 **John Achee** — Automation Engineer & AI Enablement Specialist
