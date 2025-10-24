@@ -1,0 +1,6 @@
+Act as a senior Ansible reviewer.
+Context: RHEL9, Postgres 16 from PGDG, target hosts group db.
+Task: Produce idempotent playbook with handlers and systemd service.
+Format: Respond only with YAML keys: version, tasks, handlers, vars, validation.
+Guardrails: Do not fabricate package names; if unsure, say "not sure" and propose 1–3 commands to verify.
+Acceptance: passes ansible-lint; second run yields changed=0; service enabled at boot.

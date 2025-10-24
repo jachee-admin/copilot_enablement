@@ -1,0 +1,38 @@
+# .github/workflows/prompt-coach.yml
+name: Prompt Coach Linter
+on:
+  pull_request:
+    paths:
+      - "copilot-prompts/**/*.md"
+
+jobs:
+  prompt-lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install dependencies
+        run: |
+          pip install -e .
+          pip install python-dotenv jq
+      - name: Run Prompt Coach
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: |
+          mkdir -p reports
+          for f in $(git diff --name-only origin/main | grep 'copilot-prompts/.*\.md'); do
+            echo "Analyzing $f"
+            coach -f "$f" > "reports/$(basename "$f").json" || true
+          done
+      - name: Post summary comment
+        uses: marocchino/sticky-pull-request-comment@v2
+        with:
+          header: promptcoach
+          message: |
+            🧠 **Prompt Coach Summary**
+            ```
+            $(jq -r '. | "\(.final_score)  -  \(.notes[0])"' reports/*.json)
+            ```

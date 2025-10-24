@@ -1,0 +1,8 @@
+repos:
+  - repo: local
+    hooks:
+      - id: prompt-coach
+        name: Prompt Coach Quality Check
+        entry: coach -f
+        language: system
+        files: ^copilot-prompts/.*\.md$

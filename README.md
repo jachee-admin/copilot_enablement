@@ -133,7 +133,9 @@ It includes:
 
 ## Examples / Tools
 
-- [Prompt Coach (AI Prompt Optimizer)](prompt-coach/README.md)
+- Prompt Coach (AI Prompt Optimizer)
+  - CLI: `python -m prompt_coach.cli -f samples/sample_prompt_good.txt --show-diff`
+  - API: `uvicorn server:app --reload --port 8088`
 
 
 ## About the Author

@@ -1,8 +1,21 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
 [project]
 name = "prompt-coach"
 version = "0.1.0"
 requires-python = ">=3.10"
 dependencies = ["fastapi>=0.110", "uvicorn>=0.29", "openai>=1.43"]
 
-[tool.pytest.ini_options]
-testpaths = ["tests"]
+[project.scripts]
+prompt-coach = "coach.cli:main"
+
+# ⬇️ Tell setuptools to ONLY include 'coach', and ignore benches/samples/tools/tests
+[tool.setuptools]
+packages = ["coach"]
+
+# (Optional) If you later want auto-discovery with patterns instead:
+# [tool.setuptools.packages.find]
+# include = ["coach*"]
+# exclude = ["tests*", "bench*", "samples*", "tools*"]
