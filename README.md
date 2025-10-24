@@ -17,25 +17,46 @@ It focuses on **prompt discipline, governance, and measurable ROI** — the core
 ## Contents
 
 ```text
-copilot-prompts/
+copilot_enablement/
+├── LICENSE
 ├── README.md
-├── bash/
-│ ├── docker_healthcheck_prompt.md
-│ └── log_parser_prompt.md
-├── ansible/
-│ ├── deploy_postgres_prompt.md
-│ └── user_management_prompt.md
-├── python/
-│ ├── retry_with_jitter_prompt.md
-│ └── csv_to_json_prompt.md
-└── sql/
-├── audit_trail_trigger_prompt.md
-└── rls_policy_prompt.md
-
-guides/
-├── Copilot_Prompt_Playbook.md
-└── Copilot_ROI_Template.md
-
+├── case_studies
+│   └── copilot_rollout_1pager.md
+├── copilot-prompts
+│   ├── ansible
+│   │   ├── deploy_postgres_prompt.md
+│   │   └── user_management_prompt.md
+│   ├── bash
+│   │   ├── docker_healthcheck_prompt.md
+│   │   └── log_parser_prompt.md
+│   ├── perl
+│   │   ├── config_loader_prompt.md
+│   │   ├── log_triage_prompt.md
+│   │   ├── retry_with_jitter.md
+│   │   └── t
+│   │       └── config.t.md
+│   ├── python
+│   │   ├── csv_to_json_prompt.md
+│   │   └── retry_with_jitter_prompt.md
+│   └── sql
+│       ├── audit_trail_trigger_prompt.md
+│       ├── rls_demo_cleanup.sql.md
+│       └── rls_policy_prompt.md
+├── copilot_common_library.md
+├── docs
+├── examples
+│   └── before_after_copilot.md
+├── guides
+│   ├── copilot_prompt_playbook.md
+│   ├── copilot_roi_template.md
+│   ├── copilot_rollout_deck.md
+│   ├── copilot_rollout_deck_with_talk_track.md
+│   ├── prompt_review_checklist.md
+│   └── slides_outline.md
+└── utilities
+    └── scripts
+        ├── copilot_rollout_deck.pptx
+        └── make_copilot_rollout_deck.py
 ```
 
 
@@ -90,6 +111,24 @@ Copilot outputs should always be:
 - [&nbsp;&nbsp;&nbsp;] Integrate prompt-evaluation scripts (Python)
 - [&nbsp;&nbsp;&nbsp;] Add “Before vs After Copilot” metrics examples
 
+---
+
+## Common Prompt Patterns
+
+To make prompt engineering reproducible, we maintain a shared library of reusable Copilot prompt blocks under:
+
+[`copilot_common_library.md`](./copilot_common_library.md)
+
+It includes:
+- **Role Setups** — e.g., “Act as a senior Ansible reviewer…”
+- **Format Contracts** — enforce response shape (YAML, JSON, Markdown tables)
+- **Guardrails** — prevent hallucination, data leakage, or unsafe code
+- **Verification Patterns** — test and lint checks to prove correctness
+- **Iteration Loops** — self-critique and diff-only refinement
+- **Domain Starters** — skeletons for Ansible, Python, Bash, PostgreSQL
+- **Review Checklists** — micro-reviews for quick PR guidance
+
+> Use these patterns as building blocks for consistent Copilot prompts across the repo.
 ---
 
 ## About the Author

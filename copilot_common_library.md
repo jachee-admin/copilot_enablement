@@ -280,7 +280,4 @@ Guardrails: [do-not-guess; verification commands]
 Acceptance: [bulleted checks the output must pass]
 ```
 
-```
 
-Want me to slot this into the repo and tweak your README to link to these sections?
-```
