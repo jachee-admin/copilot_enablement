@@ -2,15 +2,18 @@ from __future__ import annotations
 import os, difflib, json
 from dataclasses import dataclass
 
-MODEL = os.getenv("PROMPT_COACH_MODEL", "gpt-4o-mini")
-TIMEOUT = float(os.getenv("PROMPT_COACH_TIMEOUT", "30"))
+def get_model() -> str:
+    return os.getenv("PROMPT_COACH_MODEL", "gpt-4o-mini")
+
+def get_timeout() -> float:
+    return float(os.getenv("PROMPT_COACH_TIMEOUT", "30"))
 
 @dataclass
 class ModelUsage:
     prompt_tokens: int = 0
     completion_tokens: int = 0
     total_tokens: int = 0
-    model: str = MODEL
+    model: str = ""
 
 def unified_diff(a: str, b: str) -> str:
     a_lines = a.splitlines(keepends=True)
